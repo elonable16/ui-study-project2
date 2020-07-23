@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="js/themes/emazon.min.css" />
+    <link rel="stylesheet" href="js/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>0721_UI</title>
+</head>
+<body>
+    <!-- 메인 페이지 listview-->
+    <div data-role="page" id="listview">
+        <!-- 숨기는 페널 : 로그인 패널 생성 패널은 항상 헤더 영역 위에 -->
+        <div data-role="panel" id=panel data-display="overlay">
+            <!-- 폼으로 생성해야 한다 -->
+            <form>
+                <h3>로그인 패널</h3>
+                <label for="name">ID :</label> <!-- form태그 명령어: 입력 박스 -->
+                <!-- data clear btn 입력된 데이터의 버튼을 초기화 한다 -->
+                <input name="name" id="name" type="text" data-mini="true" data-clear-btn="true">
+                <label for="password">password:</label>
+                <input name="password" id="password" type="password" data-mini="true" data-clear-btn="true">
+                <!-- 내부에 표를 만들어 주는 기능 A는 두칸(block a,b가 생성됨) -->
+                <div class ="ui-grid-a">
+                    <div class="ui-block-a"><a href="#" data-role="button" data-rel="close">취소</a></div>
+                    <div class="ui-block-b"><a href="#" data-role="button" data-rel="close">확인</a></div>
+                </div>
+            </form>
+        </div>
+
+
+        <div data-role="header" data-position="fixed">
+            <a href="#listview"><img src="icons/home-black.png" alt="리스트 아이콘"></a>
+            <h1><img src="img/emart.png" width="100px"></img></h1>
+            <a href="#page_tab" class="ui-btn-right"><img src="icons/bars-black.png" alt="리스트 아이콘"></a>
+        </div>
+        <div data-role="content">
+            <!-- 패널 불러들이기 -->
+            <a href="#panel" data-role ="button" data-inline = "ture">login</a>
+
+            <p style="color: #333333; text-align: center;"><b>당신이 필요한 모든 것</b></p>
+            <!-- 검색창이 뜨기 위해서 DATE-Filter 사용  data-filter-placeholder-->
+            <ul data-role="listview" data-filter="true" data-filter-placeholder="검색 키워드를 넣어 주세요" data-inset="true">
+                <li data-role="listdivider">ㄱ</li>
+                <li><a href="#">강</a></li>
+                <li><a href="#">강둑</a></li>
+                <li><a href="#">강아지</a></li>
+                <li data-role="listdivider">ㄴ</li>
+                <li><a href="#">나</a></li>
+                <li><a href="#">나비</a></li>
+                <li><a href="#">나부끼다</a></li>
+                <li data-role="listdivider">ㄷ</li>
+                <li><a href="#">다</a></li>
+                <li><a href="#">다리미</a></li>
+                <li><a href="#">담</a></li>
+            </ul><br><br>
+            <ul data-role="listview" data-inset="true">
+                <li><a href="#">furnitures<span class="ui-li-count">5</span></a></li>
+                <li><a href="#">foods<span class="ui-li-count">20</span></a></li>
+                <li><a href="#">clothes<span class="ui-li-count">HOT</span></a></li>
+            </ul>
+        </div>
+        <div data-role="footer"data-position="fixed">
+            <h1><img src="img/emart.png" width="50px"></img></h1>
+        </div>
+    </div>
+
+    <!-- 두번째 페이지 page_tab -->
+    <div data-role="page" id="page_tab">
+        <div data-role="header" data-position="fixed">
+            <a href="#listview"><img src="icons/home-black.png" alt="리스트 아이콘"></a>
+            <h1><img src="img/emart.png" width="100px"></img></h1>
+            <a href="#dialog_1" class="ui-btn-right"><img src="icons/bars-black.png" alt="리스트 아이콘"></a>
+        </div>
+        <div data-role="content">
+            <div data-role="tabs">
+                <!-- 네비게이션 바는 헤더에서의 쓰임과 조금 다르다 -->
+                <div data-role="navbar">
+                    <ul>
+                        <!-- tab은 정의된 이름은 아님 -->
+                        <li><a href="#tab1">furnitures</a></li>
+                        <li><a href="#tab2">foods</a></li>
+                        <li><a href="#tab3">clothes</a></li>
+                    </ul>
+                </div>
+                <div id = tab1>
+                    <img src="img/furniture.jpg" width="460px">
+                </div>
+                <div id = tab2>
+                    <img src="img/food.jpg" width="460px">
+                </div>
+                <div id = tab3>
+                    <img src="img/clothes.jpg" width="460px">
+                </div>
+            </div>
+        </div>
+        <div data-role="footer"data-position="fixed">
+            <h1><img src="img/emart.png" width="50px"></img></h1>
+        </div>
+    </div>
+
+    <!-- 세번째 페이지 대화상자(dialog box) : dialog_1 -->
+    <!-- a 태그로 페이지 불러넣기/ 별도의 dialog 만들기 -->
+    <div data-role="page" id="dialog_1">
+        <div data-role="header" data-position="fixed">
+            <a href="#listview"><img src="icons/home-black.png" alt="리스트 아이콘"></a>
+            <h1><img src="img/emart.png" width="100px"></img></h1>
+            <a href="#call" class="ui-btn-right"><img src="icons/bars-black.png" alt="리스트 아이콘"></a>
+        </div>
+        <div data-role="content">
+            <a href="#dialog_a" data-role="button" data-rel="dialog">대화상자1</a>
+            <a href="#dialog_2" data-role="button">대화상자2</a>
+
+            
+        </div>
+        <div data-role="footer"data-position="fixed">
+            <h1><img src="img/emart.png" width="50px"></img></h1>
+        </div>
+    </div>
+
+    <!-- 네번째 페이지 대화상자(dialog box) : dialog_2 자체 대화상자 창 -->
+    <div data-role="dialog" id="dialog_2">
+        <div data-role="header" data-position="fixed">
+            <h3>DIALOG 2</h3>
+        </div>
+        <div data-role="content">
+            <p style="text-align: center;"> DIALOG PAGE 2</p>
+            <a href="#listview" data-role="button">Main Page</a>
+            <a href="#dialog_a" data-role="button">Dialog 1 Page</a>
+        </div>
+        <div data-role="footer"data-position="fixed">
+            <h1><img src="img/emart.png" width="50px"></img></h1>
+        </div>
+    </div>
+
+    <!-- 페이지로 불러드리는 대화상자 페이지 -->
+    <div data-role="page" id="dialog_a">
+        <div data-role="header" data-position="fixed">
+            <H3>DIALOG 1</H3>
+        </div>
+        <div data-role="content">
+            <p style="text-align: center;"> DIALOG PAGE 1</p>
+            <a href="#listview" data-role="button">Main Page</a>
+            <a href="#dialog_2" data-role="button">Dialog 2 page</a>
+        </div>
+        <div data-role="footer"data-position="fixed">
+            <h1><img src="img/emart.png" width="50px"></img></h1>
+        </div>
+    </div>
+
+
+    <div data-role="page" id="call">
+        <div data-role="header" data-position="fixed">
+            <a href="#listview"><img src="icons/home-black.png" alt="리스트 아이콘"></a>
+            <H3>접이식 패널</H3>
+        </div>
+        <div data-role="content">
+            <div data-role="collapsible">
+                <h3>e-mart</h3>
+                <pre>이마트라는 명칭은 'Everyday low price MART'의 약자이다.
+1993년 11월 12일 아시아 최초의 순수 자본 할인점
+국내 대형 할인점의 전형을 보여주고 있는 전국구 할인점이다.
+                </pre>
+            </div>
+            <div data-role="collapsible">
+                <h3>GS 25</h3>
+                <pre>GS리테일이 운영하는 소매업 편의점 사업 체인.
+대한민국 최초 독자 편의점 프랜차이즈 체인점이다.
+현재 매출액, 경상수지, 점포 수 등에서 업계 1위를 차지하고 있다.
+                </pre>
+            </div>
+        </div>
+        <div data-role="footer"data-position="fixed">
+            <h1><img src="img/emart.png" width="50px"></img></h1>
+        </div>
+    </div>
+    
+</body>
+</html>
